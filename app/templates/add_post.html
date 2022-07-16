@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Новая статья {% endblock %}
+{% block content %}
+    
+  {% if user.is_authenticated %}
+
+    <h1>Создание новой статьи</h1>
+      <br/>
+      <br/>
+      <div class="form-group">
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <a class="btn btn-primary" href="{% url 'add_category' %}" role="button">Добавить новую категорию</a>
+          <br/><br/>
+          <button class="btn btn-success">Опубликовать</button>
+      </div>
+
+  {% else %}
+
+    <br/>
+    <br/>
+    <h5> Тебя здесь быть не должно!
+    Но ты и так в курсе, верно ;)</h5>
+
+  {% endif %}
+
+      
+{% endblock %}

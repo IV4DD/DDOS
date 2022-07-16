@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Редактирование статьи {% endblock %}
+{% block content %}
+    
+
+  {% if user.is_authenticated %}
+    <h1>Редактирование статьи</h1>
+    <br/><br/>
+
+    <div class="form-group">
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success">Опубликовать изменения</button>
+    </div>
+  {% else %}
+
+    <br/><br/><br/>
+    <h5> Тебя здесь быть не должно!
+    Но ты и так в курсе, верно ;)</h5>
+
+  {% endif %}
+
+{% endblock %}

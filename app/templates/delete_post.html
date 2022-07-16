@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Удаление статьи{% endblock %}
+{% block content %}
+
+  {% if user.is_authenticated %}
+        <h1>Удаление статьи</h1>
+        <br/>
+        <br/>
+
+        <h6>Удалить статью: "{{ post.title }}" ?</h6>
+
+        <div class="form-group">
+          <form method="POST">
+            {% csrf_token %}
+            <br/>
+            <button class="btn btn-danger">Удалить статью</button>
+        </div>
+  {% else %}
+    <br/>
+    <br/>
+    <br/>
+    <h5> Тебя здесь быть не должно!
+    Но ты и так в курсе, верно ;)</h5>
+  {% endif %}
+
+{% endblock %}
