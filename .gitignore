@@ -4,7 +4,6 @@
 *.py[cod]
 *$py.class
 migrations/
-manage.py
 */settings.py
 
 migrations/*.py
